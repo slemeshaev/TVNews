@@ -11,10 +11,25 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let categories = ["Бизнес", "Культура", "Спорт", "Технологии", "Путешествия"]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // берем корневой контроллер представления и безопасно выбираем его как контроллер панели вкладок
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            // создаем пустой view controller
+            var viewControllers = [UIViewController]()
+            // просматриваем все категории
+            for category in categories {
+                // создаем новый view controller этой категории
+                if let newsController = tabBarController.storyboard?.instantiateViewController(identifier: "News") as? ViewController {
+                    // даем имя этой категории
+                    newsController.title = category
+                    // добавляем к нашему массиву view controllers
+                    viewControllers.append(newsController)
+                }
+            }
+            tabBarController.viewControllers = viewControllers
+        }
         return true
     }
 
