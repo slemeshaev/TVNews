@@ -14,6 +14,7 @@
 		661BFD88257734150036B50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661BFD86257734150036B50E /* LaunchScreen.storyboard */; };
 		661BFD91257735AE0036B50E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BFD90257735AE0036B50E /* SwiftyJSON.swift */; };
 		661BFD9425776BE10036B50E /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BFD9325776BE10036B50E /* NewsCell.swift */; };
+		66B35373257786EC00DC70DD /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B35372257786EC00DC70DD /* RemoteImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		661BFD89257734150036B50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		661BFD90257735AE0036B50E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		661BFD9325776BE10036B50E /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		66B35372257786EC00DC70DD /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				661BFD7D257734120036B50E /* AppDelegate.swift */,
+				66B35372257786EC00DC70DD /* RemoteImageView.swift */,
 				661BFD7F257734120036B50E /* ViewController.swift */,
 				661BFD9325776BE10036B50E /* NewsCell.swift */,
 				661BFD81257734120036B50E /* Main.storyboard */,
@@ -143,6 +146,7 @@
 				661BFD91257735AE0036B50E /* SwiftyJSON.swift in Sources */,
 				661BFD80257734120036B50E /* ViewController.swift in Sources */,
 				661BFD9425776BE10036B50E /* NewsCell.swift in Sources */,
+				66B35373257786EC00DC70DD /* RemoteImageView.swift in Sources */,
 				661BFD7E257734120036B50E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

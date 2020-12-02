@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let categories = ["Бизнес", "Культура", "Спорт", "Технологии", "Путешествия"]
+    let categories = ["Business", "Culture", "Sport", "Technology", "Travel"]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // берем корневой контроллер представления и безопасно выбираем его как контроллер панели вкладок
