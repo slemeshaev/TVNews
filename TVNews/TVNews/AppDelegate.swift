@@ -11,10 +11,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let categories = ["Business", "Culture", "Sport", "Technology", "Travel"]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // берем корневой контроллер представления и безопасно выбираем его как контроллер панели вкладок
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            // создаем пустой view controller
+            var viewControllers = [UIViewController]()
+            // просматриваем все категории
+            for category in categories {
+                // создаем новый view controller этой категории
+                if let newsController = tabBarController.storyboard?.instantiateViewController(identifier: "News") as? ViewController {
+                    // даем имя этой категории
+                    newsController.title = category
+                    // добавляем к нашему массиву view controllers
+                    viewControllers.append(newsController)
+                }
+            }
+            viewControllers.append(createSearch(storyboard: tabBarController.storyboard))
+            tabBarController.viewControllers = viewControllers
+        }
         return true
     }
 
@@ -33,6 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+    
+    func createSearch(storyboard: UIStoryboard?) -> UIViewController {
+        guard let newsController = storyboard?.instantiateViewController(identifier: "News") as? ViewController else { fatalError("Невозможно создать экземпляр NewsController") }
+        let searchController = UISearchController(searchResultsController: newsController)
+        searchController.searchResultsUpdater = newsController
+        
+        let searchContainer = UISearchContainerViewController(searchController: searchController)
+        searchContainer.title = "Search"
+        
+        return searchContainer
     }
 
 
