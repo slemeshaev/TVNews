@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     viewControllers.append(newsController)
                 }
             }
+            viewControllers.append(createSearch(storyboard: tabBarController.storyboard))
             tabBarController.viewControllers = viewControllers
         }
         return true
@@ -48,6 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+    
+    func createSearch(storyboard: UIStoryboard?) -> UIViewController {
+        guard let newsController = storyboard?.instantiateViewController(identifier: "News") as? ViewController else { fatalError("Невозможно создать экземпляр NewsController") }
+        let searchController = UISearchController(searchResultsController: newsController)
+        searchController.searchResultsUpdater = newsController
+        
+        let searchContainer = UISearchContainerViewController(searchController: searchController)
+        searchContainer.title = "Search"
+        
+        return searchContainer
     }
 
 
